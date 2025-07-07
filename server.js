@@ -1,15 +1,16 @@
-console.log("My custom message:", process.env.CUSTOM_MESSAGE);
-const express = require ('express');
+const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
 
-const app =express();
-app.use(express.static('public'));
-const PORT = process.env.PORT ||3000;
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+console.log("My custom message:", process.env.CUSTOM_MESSAGE);
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
+
 const DATA_FILE = path.join(__dirname, 'data', 'messages.json');
 
 app.get('/api/messages', (req, res) => {
