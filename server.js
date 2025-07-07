@@ -5,7 +5,8 @@ const fs = require('fs');
 const path = require('path');
 
 const app =express();
-const PORT = process.env.PORT ||3000;
+app.use(express.static('public'));
+const PORT = Process.env.PORT ||3000;
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
